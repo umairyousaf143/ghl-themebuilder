@@ -3,9 +3,9 @@
 
   // URLs of your hosted theme CSS files
   const THEMES = [
-    { name: "Blue", url: "https://yourusername.github.io/ghl-themebuilder/theme-blue.css", color: "#2563eb" },
-    { name: "Dark", url: "https://yourusername.github.io/ghl-themebuilder/theme-dark.css", color: "#0f172a" },
-    { name: "Green", url: "https://yourusername.github.io/ghl-themebuilder/theme-green.css", color: "#16a34a" }
+    { name: "Blue", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-blue.css", color: "#2563eb" },
+    { name: "Dark", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-dark.css", color: "#0f172a" },
+    { name: "Green", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-green.css", color: "#16a34a" }
   ];
   const STORAGE_KEY = "ghl-selected-theme-url";
 
