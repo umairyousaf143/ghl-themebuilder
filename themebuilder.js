@@ -1,7 +1,6 @@
-(function(){
+(function () {
   console.log("Theme Builder script loaded");
 
-  // URLs of your hosted theme CSS files
   const THEMES = [
     { name: "Blue", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-blue.css", color: "#2563eb" },
     { name: "Dark", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-dark.css", color: "#0f172a" },
@@ -9,116 +8,120 @@
   ];
   const STORAGE_KEY = "ghl-selected-theme-url";
 
-  // wait for header area to exist (retries until found)
   function waitForHeader() {
-    // try multiple selectors to find header area in different GHL versions
-    const header = document.querySelector('[data-testid="header-right-actions"]') ||
-                   document.querySelector('header .right') ||
-                   document.querySelector('header') ||
-                   document.querySelector('.topbar');
+    const header =
+      document.querySelector('[data-testid="header-right-actions"]') ||
+      document.querySelector("header .right") ||
+      document.querySelector("header") ||
+      document.querySelector(".topbar");
 
     if (!header) {
       setTimeout(waitForHeader, 800);
       return;
     }
     injectButton(header);
-    applySavedTheme(); // apply previously saved theme on load
+    applySavedTheme();
   }
 
-  // Insert or update <link id="ghl-theme-link">
   function applyThemeUrl(url) {
     if (!url) return;
-    let link = document.getElementById('ghl-theme-link');
+    let link = document.getElementById("ghl-theme-link");
     if (link) link.href = url;
     else {
-      link = document.createElement('link');
-      link.id = 'ghl-theme-link';
-      link.rel = 'stylesheet';
+      link = document.createElement("link");
+      link.id = "ghl-theme-link";
+      link.rel = "stylesheet";
       link.href = url;
       document.head.appendChild(link);
     }
-    try { localStorage.setItem(STORAGE_KEY, url); } catch(e) {}
+    try {
+      localStorage.setItem(STORAGE_KEY, url);
+    } catch (e) {}
   }
 
   function applySavedTheme() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) applyThemeUrl(saved);
-    } catch(e){}
+    } catch (e) {}
   }
 
-  // Create a polished button and attach popup
   function injectButton(header) {
-    if (document.getElementById('ghl-theme-builder-btn')) return;
+    if (document.getElementById("ghl-theme-builder-btn")) return;
 
-    // wrapper to align with header items
-    const wrapper = document.createElement('div');
-    wrapper.id = 'ghl-theme-builder-wrapper';
-    wrapper.style.display = 'inline-flex';
-    wrapper.style.alignItems = 'center';
-    wrapper.style.marginLeft = '8px';
-    wrapper.style.marginRight = '6px';
+    const wrapper = document.createElement("div");
+    wrapper.id = "ghl-theme-builder-wrapper";
+    wrapper.style.display = "flex";
+    wrapper.style.alignItems = "center";
+    wrapper.style.marginLeft = "12px";
 
-    // styled button
-    const btn = document.createElement('button');
-    btn.id = 'ghl-theme-builder-btn';
-    btn.title = 'Open Theme Builder';
-    btn.innerHTML = '🎨 <span style="font-weight:600;margin-left:6px">Theme</span>';
-    // button styles (clean, modern)
+    const btn = document.createElement("button");
+    btn.id = "ghl-theme-builder-btn";
+    btn.title = "Open Theme Builder";
+    btn.innerHTML = `<span style="font-size:14px; font-weight:600;">🎨 Theme</span>`;
+
+    // 🧠 Updated modern button styling
     Object.assign(btn.style, {
-      background: 'linear-gradient(90deg,#4b6ef5,#2563eb)',
-      color: '#fff',
-      border: 'none',
-      padding: '8px 12px',
-      borderRadius: '8px',
-      boxShadow: '0 6px 18px rgba(37,99,235,0.18)',
-      cursor: 'pointer',
-      fontSize: '13px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '6px'
+      background: "transparent",
+      border: "1px solid #d1d5db",
+      color: "#374151",
+      padding: "6px 12px",
+      borderRadius: "6px",
+      cursor: "pointer",
+      fontSize: "13px",
+      fontWeight: "500",
+      transition: "all 0.2s ease",
     });
 
-    // small caret icon
-    const caret = document.createElement('span');
-    caret.innerHTML = '▾';
-    caret.style.marginLeft = '6px';
-    caret.style.opacity = '0.9';
-    caret.style.fontSize = '12px';
-    // append
+    // hover effect
+    btn.addEventListener("mouseenter", () => {
+      btn.style.background = "#2563eb";
+      btn.style.color = "#fff";
+      btn.style.borderColor = "#2563eb";
+      btn.style.boxShadow = "0 4px 12px rgba(37,99,235,0.2)";
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.background = "transparent";
+      btn.style.color = "#374151";
+      btn.style.borderColor = "#d1d5db";
+      btn.style.boxShadow = "none";
+    });
+
     wrapper.appendChild(btn);
     header.appendChild(wrapper);
 
-    // click -> toggle popup
-    btn.addEventListener('click', (e) => {
+    // keep it always at the far right
+    header.style.display = "flex";
+    header.style.alignItems = "center";
+    header.style.justifyContent = "flex-end";
+
+    btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const existing = document.getElementById('ghl-theme-popup');
+      const existing = document.getElementById("ghl-theme-popup");
       if (existing) existing.remove();
       else createPopup(btn);
     });
 
-    // close popup when clicking outside
-    document.addEventListener('click', (ev) => {
-      const p = document.getElementById('ghl-theme-popup');
-      if (p && !p.contains(ev.target) && ev.target.id !== 'ghl-theme-builder-btn') p.remove();
+    document.addEventListener("click", (ev) => {
+      const p = document.getElementById("ghl-theme-popup");
+      if (p && !p.contains(ev.target) && ev.target.id !== "ghl-theme-builder-btn") p.remove();
     });
   }
 
-  // build popup UI
   function createPopup(btn) {
-    const popup = document.createElement('div');
-    popup.id = 'ghl-theme-popup';
+    const popup = document.createElement("div");
+    popup.id = "ghl-theme-popup";
     Object.assign(popup.style, {
-      position: 'fixed',
-      top: (btn.getBoundingClientRect().bottom + 8) + 'px',
-      right: '18px',
-      width: '260px',
-      background: '#fff',
-      borderRadius: '10px',
-      boxShadow: '0 10px 30px rgba(2,6,23,0.12)',
-      padding: '12px',
+      position: "fixed",
+      top: btn.getBoundingClientRect().bottom + 8 + "px",
+      right: "18px",
+      width: "250px",
+      background: "#fff",
+      borderRadius: "10px",
+      boxShadow: "0 10px 30px rgba(2,6,23,0.15)",
+      padding: "12px",
       zIndex: 99999,
-      fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial'
+      fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial',
     });
 
     popup.innerHTML = `
@@ -134,56 +137,55 @@
 
     document.body.appendChild(popup);
 
-    const list = popup.querySelector('#ghl-theme-list');
-    THEMES.forEach(t => {
-      const item = document.createElement('button');
-      item.className = 'ghl-theme-item';
+    const list = popup.querySelector("#ghl-theme-list");
+    THEMES.forEach((t) => {
+      const item = document.createElement("button");
+      item.className = "ghl-theme-item";
       item.title = t.name;
       Object.assign(item.style, {
-        background: '#fff',
-        border: '1px solid #e6eef7',
-        padding: '8px',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        justifyContent: 'flex-start'
+        background: "#fff",
+        border: "1px solid #e6eef7",
+        padding: "8px",
+        borderRadius: "8px",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        justifyContent: "flex-start",
+        transition: "0.2s ease",
       });
 
-      // preview circle
-      const sw = document.createElement('span');
-      sw.style.width = '28px';
-      sw.style.height = '28px';
-      sw.style.borderRadius = '50%';
+      const sw = document.createElement("span");
+      sw.style.width = "24px";
+      sw.style.height = "24px";
+      sw.style.borderRadius = "50%";
       sw.style.background = t.color;
-      sw.style.boxShadow = 'inset 0 -2px 6px rgba(0,0,0,0.08)';
-      sw.style.flex = '0 0 28px';
+      sw.style.boxShadow = "inset 0 -2px 6px rgba(0,0,0,0.08)";
+      sw.style.flex = "0 0 24px";
 
-      const label = document.createElement('div');
-      label.innerHTML = `<div style="font-weight:600">${t.name}</div><div style="font-size:12px;color:#65748b">${t.url.split('/').pop()}</div>`;
+      const label = document.createElement("div");
+      label.innerHTML = `<div style="font-weight:600;font-size:13px">${t.name}</div>`;
 
       item.appendChild(sw);
       item.appendChild(label);
 
-      item.addEventListener('click', () => {
+      item.addEventListener("click", () => {
         applyThemeUrl(t.url);
-        // small feedback
-        item.style.boxShadow = '0 6px 16px rgba(37,99,235,0.12)';
+        item.style.boxShadow = "0 4px 10px rgba(37,99,235,0.15)";
       });
 
       list.appendChild(item);
     });
 
-    // Reset button behavior
-    popup.querySelector('#ghl-theme-reset').addEventListener('click', () => {
-      const link = document.getElementById('ghl-theme-link');
+    popup.querySelector("#ghl-theme-reset").addEventListener("click", () => {
+      const link = document.getElementById("ghl-theme-link");
       if (link) link.remove();
-      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (e) {}
       popup.remove();
     });
   }
 
-  // start
   waitForHeader();
 })();
