@@ -1,1 +1,14 @@
+:root{
+  --primary: #2563eb;   /* blue */
+  --accent:  #60a5fa;
+  --bg:      #ffffff;
+  --text:    #0b1a2b;
+}
+
+/* example overrides targeting GHL elements (use Inspect to add more selectors) */
+.left-menu, .sidebar { background: var(--primary) !important; }
+.header, .topbar { background: var(--accent) !important; }
+button, .ghl-button, .btn { background: var(--primary) !important; color: #fff !important; }
+body { background: var(--bg) !important; color: var(--text) !important; }
+a { color: var(--primary) !important; }
 
