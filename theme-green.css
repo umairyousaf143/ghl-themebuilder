@@ -1,13 +1,34 @@
-
-:root{
-  --primary: #16a34a;   /* green */
-  --accent:  #10b981;
-  --bg:      #ffffff;
-  --text:    #05201a;
+:root {
+  --hl-primary-color: #16a34a !important;
+  --hl-sidebar-bg: #064e3b !important;
+  --hl-sidebar-text: #dcfce7 !important;
+  --hl-topbar-bg: #065f46 !important;
 }
 
-.left-menu, .sidebar { background: var(--primary) !important; }
-.header, .topbar { background: var(--accent) !important; }
-button, .ghl-button, .btn { background: var(--primary) !important; color: #fff !important; }
-body { background: var(--bg) !important; color: var(--text) !important; }
-a { color: var(--primary) !important; }
+.left-nav,
+.hl_leftnav,
+.sidebar {
+  background-color: var(--hl-sidebar-bg) !important;
+  color: var(--hl-sidebar-text) !important;
+}
+
+.left-nav svg,
+.sidebar svg,
+.hl_leftnav svg {
+  fill: var(--hl-sidebar-text) !important;
+}
+
+header,
+.topbar,
+.hl_topbar {
+  background-color: var(--hl-topbar-bg) !important;
+  color: white !important;
+}
+
+button,
+.hl-btn,
+.btn-primary {
+  background-color: var(--hl-primary-color) !important;
+  border-color: var(--hl-primary-color) !important;
+  color: #fff !important;
+}
