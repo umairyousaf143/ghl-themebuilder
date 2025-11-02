@@ -1,1 +1,13 @@
+:root{
+  --primary: #0f172a;   /* dark navy */
+  --accent:  #1e293b;
+  --bg:      #0b1020;
+  --text:    #e6eef8;
+}
+
+.left-menu, .sidebar { background: var(--primary) !important; }
+.header, .topbar { background: var(--accent) !important; color: var(--text) !important; }
+button, .ghl-button, .btn { background: var(--primary) !important; color: var(--text) !important; }
+body { background: var(--bg) !important; color: var(--text) !important; }
+a { color: var(--accent) !important; }
 
