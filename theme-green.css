@@ -1,1 +1,13 @@
 
+:root{
+  --primary: #16a34a;   /* green */
+  --accent:  #10b981;
+  --bg:      #ffffff;
+  --text:    #05201a;
+}
+
+.left-menu, .sidebar { background: var(--primary) !important; }
+.header, .topbar { background: var(--accent) !important; }
+button, .ghl-button, .btn { background: var(--primary) !important; color: #fff !important; }
+body { background: var(--bg) !important; color: var(--text) !important; }
+a { color: var(--primary) !important; }
