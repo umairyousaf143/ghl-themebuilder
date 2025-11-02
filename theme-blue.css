@@ -1,14 +1,37 @@
-:root{
-  --primary: #2563eb;   /* blue */
-  --accent:  #60a5fa;
-  --bg:      #ffffff;
-  --text:    #0b1a2b;
+:root {
+  --hl-primary-color: #2563eb !important;
+  --hl-sidebar-bg: #1e293b !important;
+  --hl-sidebar-text: #e2e8f0 !important;
+  --hl-topbar-bg: #1e40af !important;
 }
 
-/* example overrides targeting GHL elements (use Inspect to add more selectors) */
-.left-menu, .sidebar { background: var(--primary) !important; }
-.header, .topbar { background: var(--accent) !important; }
-button, .ghl-button, .btn { background: var(--primary) !important; color: #fff !important; }
-body { background: var(--bg) !important; color: var(--text) !important; }
-a { color: var(--primary) !important; }
+/* Sidebar and icons */
+.left-nav,
+.hl_leftnav,
+.sidebar {
+  background-color: var(--hl-sidebar-bg) !important;
+  color: var(--hl-sidebar-text) !important;
+}
 
+.left-nav svg,
+.sidebar svg,
+.hl_leftnav svg {
+  fill: var(--hl-sidebar-text) !important;
+}
+
+/* Top navigation bar */
+header,
+.topbar,
+.hl_topbar {
+  background-color: var(--hl-topbar-bg) !important;
+  color: white !important;
+}
+
+/* Buttons */
+button,
+.hl-btn,
+.btn-primary {
+  background-color: var(--hl-primary-color) !important;
+  border-color: var(--hl-primary-color) !important;
+  color: #fff !important;
+}
