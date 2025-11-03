@@ -1,27 +1,50 @@
 (function () {
-  console.log("Theme Builder script loaded");
+  console.log("Theme Builder script loaded ✅");
 
+  // --- Add custom style for animated button
   const style = document.createElement("style");
-style.textContent = `
-#ghl-theme-builder-btn::after {
-  content: "";
-  position: absolute;
-  inset: 100% 0 0 0;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transition: inset 0.3s ease-in-out;
-  z-index: 0;
-}
-#ghl-theme-builder-btn:hover::after {
-  inset: 0;
-}
-#ghl-theme-builder-btn span {
-  position: relative;
-  z-index: 1;
-}
-`;
-document.head.appendChild(style);
+  style.textContent = `
+  #ghl-theme-builder-btn {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 1;
+  }
+  #ghl-theme-builder-btn::after {
+    content: "";
+    position: absolute;
+    inset: 100% 0 0 0;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transition: inset 0.3s ease-in-out;
+    z-index: 0;
+  }
+  #ghl-theme-builder-btn:hover::after {
+    inset: 0;
+  }
+  #ghl-theme-builder-btn span {
+    position: relative;
+    z-index: 1;
+  }
+  #ghl-theme-builder-btn:hover {
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+  }
+  `;
+  document.head.appendChild(style);
 
-  
+  // --- Theme definitions
   const THEMES = [
     { name: "Blue", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-blue.css", color: "#2563eb" },
     { name: "Dark", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-dark.css", color: "#0f172a" },
@@ -29,7 +52,8 @@ document.head.appendChild(style);
   ];
   const STORAGE_KEY = "ghl-selected-theme-url";
 
-  function waitForHeader() {
+  // --- Repeatedly check until header exists
+  function waitForHeader(attempt = 0) {
     const header =
       document.querySelector('[data-testid="header-right-actions"]') ||
       document.querySelector("header .right") ||
@@ -37,13 +61,16 @@ document.head.appendChild(style);
       document.querySelector(".topbar");
 
     if (!header) {
-      setTimeout(waitForHeader, 800);
+      if (attempt < 20) setTimeout(() => waitForHeader(attempt + 1), 800);
+      else console.warn("⏳ GHL header not found after multiple attempts.");
       return;
     }
+
     injectButton(header);
     applySavedTheme();
   }
 
+  // --- Apply selected theme
   function applyThemeUrl(url) {
     if (!url) return;
     let link = document.getElementById("ghl-theme-link");
@@ -60,6 +87,7 @@ document.head.appendChild(style);
     } catch (e) {}
   }
 
+  // --- Restore saved theme
   function applySavedTheme() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -67,6 +95,7 @@ document.head.appendChild(style);
     } catch (e) {}
   }
 
+  // --- Inject button into header
   function injectButton(header) {
     if (document.getElementById("ghl-theme-builder-btn")) return;
 
@@ -79,53 +108,12 @@ document.head.appendChild(style);
     const btn = document.createElement("button");
     btn.id = "ghl-theme-builder-btn";
     btn.title = "Open Theme Builder";
-    btn.innerHTML = `<span style="font-size:14px; font-weight:600;">🎨 Theme</span>`;
+    btn.innerHTML = `<span>🎨 Theme</span>`;
 
-    // 🧠 Updated modern button styling
-    Object.assign(btn.style, {
-  position: "relative",
-  overflow: "hidden",
-  display: "flex",
-  alignItems: "center",
-  gap: "6px",
-  background: "transparent",
-  border: "1px solid #2563eb",
-  color: "#2563eb",
-  padding: "8px 14px",
-  borderRadius: "10px",
-  cursor: "pointer",
-  fontSize: "14px",
-  fontWeight: "600",
-  transition: "color 0.3s ease-in-out, transform 0.2s ease-in-out",
-});
+    wrapper.appendChild(btn);
+    header.appendChild(wrapper);
 
-    // hover effect
-btn.onmouseenter = () => {
-  btn.style.color = "#fff";
-  btn.style.transform = "translateY(-2px)";
-  btn.animate(
-    [
-      { boxShadow: "0 0 0 rgba(37,99,235,0)" },
-      { boxShadow: "0 8px 20px rgba(37,99,235,0.25)" }
-    ],
-    { duration: 300, fill: "forwards" }
-  );
-};
-
-btn.onmouseleave = () => {
-  btn.style.color = "#2563eb";
-  btn.style.transform = "translateY(0)";
-  btn.animate(
-    [
-      { boxShadow: "0 8px 20px rgba(37,99,235,0.25)" },
-      { boxShadow: "0 0 0 rgba(37,99,235,0)" }
-    ],
-    { duration: 300, fill: "forwards" }
-  );
-};
-
-
-    // keep it always at the far right
+    // keep right-aligned
     header.style.display = "flex";
     header.style.alignItems = "center";
     header.style.justifyContent = "flex-end";
@@ -143,6 +131,7 @@ btn.onmouseleave = () => {
     });
   }
 
+  // --- Popup menu
   function createPopup(btn) {
     const popup = document.createElement("div");
     popup.id = "ghl-theme-popup";
