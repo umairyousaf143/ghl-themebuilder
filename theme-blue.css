@@ -1,180 +1,290 @@
 /* ==========================================================
-   GHL Full Blue Theme (v3.1) — Umair “Deep Blue Glow” Edition
+   GHL Full Blue Theme (v4) — Umair Luxury Edition
    ========================================================== */
 
 /* ---------- BASE COLORS ---------- */
 :root {
   --ghl-primary: #1e3a8a;         /* Core rich blue */
-  --ghl-primary-light: #3b82f6;   /* Accent sky blue */
-  --ghl-primary-dark: #172554;    /* Deep navy */
-  --ghl-accent: #60a5fa;          /* Hover glow */
-  --ghl-bg-main: #f4f6fb;         /* Light dashboard background */
+  --ghl-primary-light: #4f7df7;   /* Accent blue (lighter) */
+  --ghl-primary-dark: #0f274f;    /* Deep navy */
+  --ghl-accent: #7cc4ff;          /* Soft glow accent */
+  --ghl-bg-main: #f3f6fb;         /* Light dashboard background */
   --ghl-bg-card: #ffffff;         /* Card backgrounds */
-  --ghl-text-main: #0f172a;       /* Dark text */
+  --ghl-text-main: #071428;       /* Deep text */
   --ghl-text-light: #ffffff;      /* White text */
   --ghl-border: #dbeafe;          /* Soft border */
+  --ghl-muted: rgba(255,255,255,0.14);
 }
 
-/* ---------- BODY ---------- */
+/* ---------- BASE LAYOUT ---------- */
 body, .hl_wrapper, .hl_main {
   background: var(--ghl-bg-main) !important;
   color: var(--ghl-text-main) !important;
-  font-family: 'Inter', 'Roboto', sans-serif !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, "Segoe UI", Arial !important;
+  -webkit-font-smoothing:antialiased !important;
 }
 
-/* ---------- HEADER ---------- */
+/* ================= HEADER ================= */
+/* header background and depth */
 header, .hl_header, .topbar, .hl_nav_header {
   background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
   color: var(--ghl-text-light) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 18px rgba(10,25,60,0.28) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
 }
 
-header a, .hl_header a {
+/* header action buttons (help, bell, avatar) — make them visible */
+header button, header .btn, .hl_header .icon-button, .topbar button, .topbar .icon-button {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
   color: var(--ghl-text-light) !important;
-  font-weight: 500 !important;
-  transition: color 0.25s ease-in-out;
+  padding: 8px !important;
+  margin: 0 6px !important;
+  border-radius: 10px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease !important;
+  box-shadow: 0 2px 8px rgba(8,20,50,0.12) !important;
 }
 
-header a:hover {
-  color: var(--ghl-accent) !important;
-}
-
-/* ---------- SIDEBAR ---------- */
-aside, .hl_sidebar, .hl_navbar, .hl_leftbar {
-  background: linear-gradient(180deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
+/* keep icons visible — force fills and strokes */
+header button svg, header .icon-button svg, .topbar svg, .hl_header svg, header button i, .topbar i {
+  fill: var(--ghl-text-light) !important;
+  stroke: var(--ghl-text-light) !important;
   color: var(--ghl-text-light) !important;
-  border-right: 1px solid rgba(255,255,255,0.05) !important;
-  box-shadow: inset -2px 0 12px rgba(0,0,0,0.15);
+  opacity: 0.98 !important;
+  width: 18px !important;
+  height: 18px !important;
 }
 
-.hl_nav_item, .menu-item {
-  color: rgba(255,255,255,0.85) !important;
-  font-weight: 600 !important;
+/* hover on header actions (luxury glow) */
+header button:hover, .topbar button:hover, .icon-button:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(30,60,150,0.18) !important;
+}
+
+/* accent color for active notifications / badges */
+.header .badge, .topbar .badge, .hl-notification-badge {
+  background: var(--ghl-accent) !important;
+  color: #022040 !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  padding: 2px 6px !important;
+  box-shadow: 0 4px 12px rgba(124,196,255,0.16) !important;
+}
+
+/* tooltip color in header area */
+.header .tooltip-inner, .hl_tooltip_inner {
+  background: rgba(8,20,50,0.96) !important;
+  color: var(--ghl-text-light) !important;
   border-radius: 8px !important;
-  margin: 3px 6px !important;
-  padding: 9px 12px !important;
-  transition: all 0.25s ease !important;
-  letter-spacing: 0.2px;
+  padding: 6px 8px !important;
 }
 
+/* ================= SIDEBAR ================= */
+/* unified sidebar gradient and depth */
+aside, .hl_sidebar, .hl_navbar, .hl_leftbar, .menu-sidebar {
+  background: linear-gradient(180deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
+  color: var(--ghl-text-light) !important;
+  border-right: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: inset -6px 0 30px rgba(10,24,60,0.22) !important;
+  padding-top: 14px !important;
+  min-width: 240px !important;
+}
+
+/* logo polish */
+aside .hl_nav_logo img, .hl_leftbar img, .menu-sidebar img {
+  width: 140px !important;
+  margin: 12px auto 18px auto !important;
+  display: block !important;
+  filter: drop-shadow(0 8px 24px rgba(7,16,40,0.6));
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), filter 220ms;
+}
+aside .hl_nav_logo img:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: drop-shadow(0 12px 36px rgba(7,16,40,0.6));
+}
+
+/* menu item base */
+.hl_nav_item, .menu-item, .hl_menu_item, .nav-link {
+  color: rgba(255,255,255,0.92) !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  margin: 6px 10px !important;
+  padding: 10px 12px !important;
+  transition: transform .20s ease, background .20s ease, box-shadow .20s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  letter-spacing: 0.3px !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.18);
+}
+
+/* icon style inside menu */
+.hl_nav_item svg, .menu-item svg, .hl_menu_item svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: rgba(255,255,255,0.95) !important;
+  color: rgba(255,255,255,0.95) !important;
+  transition: transform .18s ease, filter .18s ease;
+  filter: drop-shadow(0 2px 8px rgba(7,16,40,0.28));
+}
+
+/* hover — luxury highlight */
 .hl_nav_item:hover, .menu-item:hover {
-  background: rgba(255,255,255,0.12) !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)) !important;
+  transform: translateX(6px) scale(1.01);
+  box-shadow: 0 8px 30px rgba(7,24,60,0.22) !important;
   color: #fff !important;
-  transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.hl_nav_item.active, .menu-item.active {
-  background: var(--ghl-primary-light) !important;
+/* hover icon accent */
+.hl_nav_item:hover svg, .menu-item:hover svg {
+  transform: scale(1.12);
+  filter: drop-shadow(0 6px 18px rgba(59,130,246,0.22));
+  fill: var(--ghl-accent) !important;
+}
+
+/* active item — strong focus */
+.hl_nav_item.active, .menu-item.active, .nav-link.active {
+  background: linear-gradient(90deg, var(--ghl-primary-light), var(--ghl-primary)) !important;
   color: #fff !important;
-  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+  box-shadow: 0 10px 40px rgba(59,130,246,0.30) !important;
   transform: translateX(2px);
 }
 
-/* ---------- ICONS ---------- */
-.hl_nav_icon, .hl_icon, svg {
-  color: rgba(255,255,255,0.9) !important;
-  transition: all 0.25s ease;
+/* section titles */
+.hl_nav_group_title, .menu-heading {
+  color: rgba(255,255,255,0.72) !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  margin: 12px 16px 6px 16px !important;
+  letter-spacing: 0.6px !important;
+  font-weight: 700 !important;
 }
 
-.hl_nav_item:hover svg, .menu-item:hover svg {
-  color: var(--ghl-accent) !important;
-  transform: scale(1.05);
-}
-
-/* ---------- CARDS ---------- */
+/* ================= CONTENT & CARDS ================= */
+/* cards with softer rounded corners and glass feel */
 .card, .hl_card, .hl_dashboard_card, .hl_widget_card {
-  background: var(--ghl-bg-card) !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,251,0.98)) !important;
+  border: 1px solid rgba(14,48,120,0.04) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 28px rgba(11,32,78,0.06) !important;
+  transition: transform .22s ease, box-shadow .22s ease !important;
 }
 
+/* card hover */
 .card:hover, .hl_card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(8,20,60,0.10);
 }
 
-/* ---------- BUTTONS ---------- */
+/* buttons — luxury gradient + glow */
 button, .hl-btn, .hl_button, .hl_primary, .hl_submit {
-  background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary-light)) !important;
+  background: linear-gradient(90deg, var(--ghl-primary), var(--ghl-primary-light)) !important;
   color: var(--ghl-text-light) !important;
   border: none !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  padding: 8px 14px !important;
-  letter-spacing: 0.3px;
-  transition: all 0.25s ease !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  padding: 10px 16px !important;
+  box-shadow: 0 8px 28px rgba(37,99,235,0.14) !important;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
 }
 
-button:hover, .hl-btn:hover, .hl_button:hover, .hl_submit:hover {
-  background: linear-gradient(90deg, var(--ghl-primary), var(--ghl-accent)) !important;
-  box-shadow: 0 4px 14px rgba(37,99,235,0.4);
-  transform: translateY(-1.5px);
+/* button hover */
+button:hover, .hl-btn:hover, .hl_submit:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 20px 60px rgba(37,99,235,0.22) !important;
+  filter: saturate(1.05) brightness(1.02);
 }
 
-/* ---------- INPUTS ---------- */
+/* ghost / outline buttons */
+button.ghost, .btn-outline {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  color: var(--ghl-text-light) !important;
+}
+
+/* ================= FORMS & INPUTS ================= */
 input, textarea, select {
   background: #fff !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 8px !important;
+  border: 1px solid rgba(14,48,120,0.06) !important;
+  border-radius: 10px !important;
   color: var(--ghl-text-main) !important;
-  padding: 8px 10px !important;
-  transition: all 0.2s ease-in-out;
+  padding: 10px 12px !important;
+  transition: box-shadow .18s ease, border-color .18s ease !important;
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: var(--ghl-primary-light) !important;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.3) !important;
+  border-color: var(--ghl-accent) !important;
+  box-shadow: 0 6px 20px rgba(59,130,246,0.16) !important;
+  outline: none !important;
 }
 
-/* ---------- TABLES ---------- */
+/* ================= TABLES ================= */
 table, .hl_table {
   background: #fff !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(14,48,120,0.05) !important;
 }
 
 th {
-  background: var(--ghl-primary) !important;
+  background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
   color: #fff !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.3px;
+  font-weight: 700 !important;
+  letter-spacing: 0.4px;
 }
 
 td {
   color: var(--ghl-text-main) !important;
 }
 
-/* ---------- MODALS ---------- */
+/* ================= MODALS & POPUPS ================= */
 .modal-content, .hl_modal_content {
   background: #fff !important;
   border-radius: 14px !important;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+  box-shadow: 0 30px 90px rgba(8,20,60,0.26) !important;
 }
 
-/* ---------- SCROLLBAR ---------- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--ghl-primary-dark);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ghl-primary);
-}
-::-webkit-scrollbar-track {
-  background: var(--ghl-bg-main);
+/* help modal / help dropdown */
+.help-modal, .hl-help-modal, .help-dropdown {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,251,0.98)) !important;
+  border-radius: 12px !important;
+  color: var(--ghl-text-main) !important;
+  box-shadow: 0 24px 60px rgba(8,20,60,0.18) !important;
 }
 
-/* ---------- FOOTER ---------- */
-footer, .hl_footer {
-  background: var(--ghl-primary-dark) !important;
+/* ================= ICONS & SMALL UI ================= */
+/* force visuals for icons anywhere */
+svg, i, .icon, .hl_icon {
+  fill: currentColor !important;
+  color: inherit !important;
+}
+
+/* ensure help / small icons are visible in header */
+button[aria-label*="Help"], .help-button, .hl-help-button, .help-icon {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
   color: var(--ghl-text-light) !important;
-  padding: 10px;
+  padding: 8px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 18px rgba(3,18,55,0.14) !important;
+}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar { width: 8px; height:8px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg,var(--ghl-primary-dark),var(--ghl-primary)); border-radius: 8px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); }
+
+/* ================= FOOTER ================= */
+footer, .hl_footer {
+  background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
+  color: var(--ghl-text-light) !important;
+  padding: 12px;
   text-align: center;
   font-size: 13px;
   letter-spacing: 0.3px;
