@@ -1,174 +1,168 @@
-/* ================================
-   GHL Full Blue Theme - Umair Style
-   ================================ */
+/* ==============================================
+   GHL Full Blue Theme (v2) — Umair Refined Edition
+   ============================================== */
 
-/* ---------- GLOBAL COLORS ---------- */
+/* ---------- BASE COLORS ---------- */
 :root {
-  --ghl-primary: #2563eb;      /* Main Blue */
-  --ghl-dark-blue: #1e3a8a;    /* Darker Blue */
-  --ghl-light-blue: #3b82f6;   /* Accent Blue */
-  --ghl-bg-light: #f8fafc;     /* Dashboard background */
-  --ghl-text-dark: #0f172a;    /* Main text color */
-  --ghl-text-light: #ffffff;   /* White text */
-  --ghl-border: #dbeafe;       /* Light border color */
+  --ghl-primary: #1d4ed8;        /* Core blue */
+  --ghl-primary-light: #3b82f6;  /* Accent blue */
+  --ghl-primary-dark: #1e40af;   /* Deep blue for sidebar/header */
+  --ghl-bg-main: #f5f7fb;        /* Dashboard background */
+  --ghl-bg-card: #ffffff;        /* Card backgrounds */
+  --ghl-text-main: #0f172a;      /* Dark text */
+  --ghl-text-light: #ffffff;     /* White text */
+  --ghl-border: #dbeafe;         /* Soft border */
 }
 
-/* ---------- BODY / GENERAL ---------- */
-body, .hl_wrapper, .hl_dashboard_container, .hl_main {
-  background-color: var(--ghl-bg-light) !important;
-  color: var(--ghl-text-dark) !important;
+/* ---------- BODY ---------- */
+body, .hl_wrapper, .hl_main {
+  background: var(--ghl-bg-main) !important;
+  color: var(--ghl-text-main) !important;
   font-family: 'Inter', 'Roboto', sans-serif !important;
 }
 
-/* ---------- HEADER / TOP NAV ---------- */
+/* ---------- HEADER ---------- */
 header, .hl_header, .topbar, .hl_nav_header {
-  background-color: var(--ghl-dark-blue) !important;
+  background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
   color: var(--ghl-text-light) !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
 }
 
 header a, .hl_header a {
   color: var(--ghl-text-light) !important;
+  transition: color 0.2s ease-in-out;
 }
 
 header a:hover {
-  color: var(--ghl-light-blue) !important;
+  color: var(--ghl-primary-light) !important;
 }
 
-/* ---------- SIDEBAR / LEFT NAV ---------- */
-aside, .hl_sidebar, .hl_navbar, .hl_leftbar, .hl_nav {
-  background-color: var(--ghl-primary) !important;
+/* ---------- SIDEBAR ---------- */
+aside, .hl_sidebar, .hl_navbar, .hl_leftbar {
+  background: linear-gradient(180deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
   color: var(--ghl-text-light) !important;
   border-right: 1px solid var(--ghl-border) !important;
 }
 
 .hl_nav_item, .menu-item {
-  color: var(--ghl-text-light) !important;
-  transition: all 0.2s ease-in-out !important;
+  color: rgba(255,255,255,0.85) !important;
   font-weight: 500 !important;
+  border-radius: 8px !important;
+  margin: 2px 6px !important;
+  padding: 8px 10px !important;
+  transition: all 0.25s ease !important;
 }
 
 .hl_nav_item:hover, .menu-item:hover {
-  background-color: var(--ghl-light-blue) !important;
+  background: rgba(255,255,255,0.12) !important;
   color: #fff !important;
-  border-radius: 6px !important;
+  transform: translateX(3px);
 }
 
 .hl_nav_item.active, .menu-item.active {
-  background-color: var(--ghl-dark-blue) !important;
-  font-weight: 600 !important;
+  background: var(--ghl-primary-light) !important;
+  color: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
 }
 
 /* ---------- ICONS ---------- */
-.hl_nav_icon, .hl_icon, .menu-icon, svg {
-  color: var(--ghl-text-light) !important;
-  fill: var(--ghl-text-light) !important;
+.hl_nav_icon, .hl_icon, svg {
+  color: rgba(255,255,255,0.9) !important;
+  transition: color 0.2s ease-in-out;
 }
 
 .hl_nav_item:hover svg, .menu-item:hover svg {
   color: #fff !important;
-  fill: #fff !important;
+}
+
+/* ---------- CARDS ---------- */
+.card, .hl_card, .hl_dashboard_card, .hl_widget_card {
+  background: var(--ghl-bg-card) !important;
+  border: 1px solid var(--ghl-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover, .hl_card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* ---------- BUTTONS ---------- */
-button, .hl_button, .hl-btn, .hl_primary, .hl_submit {
-  background-color: var(--ghl-primary) !important;
+button, .hl-btn, .hl_button, .hl_primary, .hl_submit {
+  background: linear-gradient(90deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
   color: #fff !important;
   border: none !important;
   border-radius: 8px !important;
-  transition: 0.2s ease-in-out !important;
+  font-weight: 500 !important;
+  transition: all 0.25s ease !important;
 }
 
-button:hover, .hl_button:hover, .hl-btn:hover {
-  background-color: var(--ghl-dark-blue) !important;
+button:hover, .hl-btn:hover, .hl_button:hover {
+  background: linear-gradient(90deg, var(--ghl-primary), var(--ghl-primary-light)) !important;
+  box-shadow: 0 3px 12px rgba(37,99,235,0.3);
   transform: translateY(-1px);
 }
 
-button:disabled {
-  background-color: #94a3b8 !important;
-  opacity: 0.7;
-}
-
-/* ---------- INPUTS / FORMS ---------- */
+/* ---------- INPUTS ---------- */
 input, textarea, select {
-  background-color: #fff !important;
-  color: var(--ghl-text-dark) !important;
+  background: #fff !important;
   border: 1px solid var(--ghl-border) !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
+  color: var(--ghl-text-main) !important;
+  padding: 8px 10px !important;
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: var(--ghl-primary) !important;
-  box-shadow: 0 0 0 2px rgba(37,99,235,0.25) !important;
-  outline: none !important;
-}
-
-/* ---------- CARDS / WIDGETS ---------- */
-.card, .hl_card, .hl_dashboard_card, .hl_widget_card {
-  background-color: #fff !important;
-  border-radius: 12px !important;
-  border: 1px solid var(--ghl-border) !important;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+  border-color: var(--ghl-primary-light) !important;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3) !important;
 }
 
 /* ---------- TABLES ---------- */
 table, .hl_table {
-  background-color: #fff !important;
-  border-radius: 6px !important;
+  background: #fff !important;
   border: 1px solid var(--ghl-border) !important;
+  border-radius: 8px !important;
 }
 
 th {
-  background-color: var(--ghl-light-blue) !important;
+  background: var(--ghl-primary) !important;
   color: #fff !important;
   font-weight: 600 !important;
 }
 
 td {
-  color: var(--ghl-text-dark) !important;
+  color: var(--ghl-text-main) !important;
 }
 
-/* ---------- MODALS / POPUPS ---------- */
-.modal, .hl_modal {
-  background-color: rgba(0,0,0,0.4) !important;
-  backdrop-filter: blur(4px);
-}
-
+/* ---------- MODALS ---------- */
 .modal-content, .hl_modal_content {
-  background-color: #fff !important;
-  border-radius: 10px !important;
-  color: var(--ghl-text-dark) !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 /* ---------- SCROLLBAR ---------- */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--ghl-dark-blue) !important;
+  background: var(--ghl-primary-dark);
   border-radius: 6px;
 }
-
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ghl-primary);
+}
 ::-webkit-scrollbar-track {
-  background: var(--ghl-primary) !important;
+  background: var(--ghl-bg-main);
 }
 
-/* ---------- LINKS ---------- */
-a {
-  color: var(--ghl-primary) !important;
-}
-
-a:hover {
-  color: var(--ghl-dark-blue) !important;
-  text-decoration: underline;
-}
-
-/* ---------- FOOTER / NOTES ---------- */
+/* ---------- FOOTER ---------- */
 footer, .hl_footer {
-  background-color: var(--ghl-dark-blue) !important;
+  background: var(--ghl-primary-dark) !important;
   color: var(--ghl-text-light) !important;
-  text-align: center !important;
-  padding: 10px 0 !important;
-  font-size: 13px !important;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
 }
