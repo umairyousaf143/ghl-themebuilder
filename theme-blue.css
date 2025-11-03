@@ -575,14 +575,15 @@ aside > div:first-of-type,
 .sidebar-header {
   background: #ffffff !important;
   border-radius: 16px !important;
-  padding: 14px 16px !important;
+  padding: 12px 14px !important;
   margin: 8px 12px 16px 12px !important;
   border: 2px solid rgba(37, 99, 235, 0.15) !important;
   box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
+  cursor: pointer !important;
 }
 
 /* Hover effect - Lift and glow */
@@ -595,11 +596,10 @@ aside > div:first-of-type,
 
 /* Location/Settings icon - Blue circle background */
 .account-switcher svg:first-child,
-.location-switcher svg:first-child,
-button[class*="switch"] svg:first-child {
-  width: 28px !important;
-  height: 28px !important;
-  padding: 6px !important;
+.location-switcher svg:first-child {
+  width: 20px !important;
+  height: 20px !important;
+  padding: 8px !important;
   background: linear-gradient(135deg, var(--ghl-primary), var(--ghl-primary-light)) !important;
   border-radius: 50% !important;
   fill: #ffffff !important;
@@ -608,54 +608,41 @@ button[class*="switch"] svg:first-child {
   flex-shrink: 0 !important;
 }
 
-/* "Click here to switch" text - Bold Blue/Green gradient */
-.account-switcher span:first-of-type,
-.location-switcher span:first-of-type,
-.account-switcher div:first-of-type {
+/* Text container - ensure all text is visible */
+.account-switcher > *:not(svg),
+.location-switcher > *:not(svg) {
   color: #059669 !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
-  letter-spacing: 0.3px !important;
+  font-size: 14px !important;
+  letter-spacing: 0.2px !important;
   flex: 1 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
 }
 
-/* Alternative: Blue text if you prefer matching theme */
-/* Uncomment below and comment above for blue text */
-/*
-.account-switcher span:first-of-type,
-.location-switcher span:first-of-type {
-  color: var(--ghl-primary) !important;
+/* All spans and divs inside switcher */
+.account-switcher span,
+.account-switcher div,
+.location-switcher span,
+.location-switcher div {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
 }
-*/
 
-/* Dropdown arrows container - Right side */
+/* Dropdown arrows - Right side */
 .account-switcher svg:last-child,
-.location-switcher svg:last-child,
-[class*="chevron"],
-[class*="arrow"] {
+.location-switcher svg:last-child {
   fill: var(--ghl-primary) !important;
   color: var(--ghl-primary) !important;
   opacity: 0.7 !important;
-  width: 16px !important;
-  height: 16px !important;
+  width: 18px !important;
+  height: 18px !important;
   flex-shrink: 0 !important;
   transition: all 0.2s ease !important;
+  margin-left: auto !important;
 }
 
 /* Arrow hover effect */
 .account-switcher:hover svg:last-child,
 .location-switcher:hover svg:last-child {
   opacity: 1 !important;
-  transform: translateY(2px) !important;
-}
-
-/* Account name/subtitle below (if exists) */
-.account-switcher small,
-.location-switcher small {
-  color: #64748b !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
 }
