@@ -1,37 +1,55 @@
-:root {
-  --hl-primary-color: #2563eb !important;
-  --hl-sidebar-bg: #1e293b !important;
-  --hl-sidebar-text: #e2e8f0 !important;
-  --hl-topbar-bg: #1e40af !important;
+/* ============= GHL Theme - Blue ============= */
+
+/* Sidebar Background */
+aside, .left-panel, .hl_sidebar, .hl_navbar, .hl_leftbar, .hl_nav {
+  background-color: #2563eb !important;
 }
 
-/* Sidebar and icons */
-.left-nav,
-.hl_leftnav,
-.sidebar {
-  background-color: var(--hl-sidebar-bg) !important;
-  color: var(--hl-sidebar-text) !important;
+/* Top Header / Navigation Bar */
+header, .topbar, .hl_topbar, .hl_nav_header {
+  background-color: #1e3a8a !important;
 }
 
-.left-nav svg,
-.sidebar svg,
-.hl_leftnav svg {
-  fill: var(--hl-sidebar-text) !important;
+/* Sidebar Menu Text */
+.hl_nav_text, .menu-item, .hl_nav_menu_item, .hl_menu_label, .hl_nav_item_label, .hl_nav_title {
+  color: #ffffff !important;
 }
 
-/* Top navigation bar */
-header,
-.topbar,
-.hl_topbar {
-  background-color: var(--hl-topbar-bg) !important;
-  color: white !important;
+/* Sidebar Icons */
+.hl_nav_icon, .hl_icon, .menu-icon, svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
-/* Buttons */
-button,
-.hl-btn,
-.btn-primary {
-  background-color: var(--hl-primary-color) !important;
-  border-color: var(--hl-primary-color) !important;
+/* Hover and Active State */
+.hl_nav_item:hover, .hl_nav_item.active, .menu-item:hover, .menu-item.active {
+  background-color: #1d4ed8 !important;
   color: #fff !important;
+}
+
+/* Buttons and Primary Actions */
+button, .hl_button, .hl-btn, .hl_primary, .hl_submit {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Input focus borders and highlights */
+input:focus, textarea:focus, select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb !important;
+}
+
+/* Dashboard cards and inner backgrounds (lightened for contrast) */
+.card, .hl_card, .hl_dashboard_card, .hl_widget_card {
+  background-color: #f9fafb !important;
+  border-radius: 8px !important;
+}
+
+/* Scrollbar color (for sidebar) */
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a !important;
+}
+::-webkit-scrollbar-track {
+  background: #2563eb !important;
 }
