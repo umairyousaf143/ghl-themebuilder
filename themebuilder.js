@@ -1,6 +1,27 @@
 (function () {
   console.log("Theme Builder script loaded");
 
+  const style = document.createElement("style");
+style.textContent = `
+#ghl-theme-builder-btn::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 0 0;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transition: inset 0.3s ease-in-out;
+  z-index: 0;
+}
+#ghl-theme-builder-btn:hover::after {
+  inset: 0;
+}
+#ghl-theme-builder-btn span {
+  position: relative;
+  z-index: 1;
+}
+`;
+document.head.appendChild(style);
+
+  
   const THEMES = [
     { name: "Blue", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-blue.css", color: "#2563eb" },
     { name: "Dark", url: "https://umairyousaf143.github.io/ghl-themebuilder/theme-dark.css", color: "#0f172a" },
@@ -62,33 +83,47 @@
 
     // 🧠 Updated modern button styling
     Object.assign(btn.style, {
-      background: "transparent",
-      border: "1px solid #d1d5db",
-      color: "#374151",
-      padding: "6px 12px",
-      borderRadius: "6px",
-      cursor: "pointer",
-      fontSize: "13px",
-      fontWeight: "500",
-      transition: "all 0.2s ease",
-    });
+  position: "relative",
+  overflow: "hidden",
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  background: "transparent",
+  border: "1px solid #2563eb",
+  color: "#2563eb",
+  padding: "8px 14px",
+  borderRadius: "10px",
+  cursor: "pointer",
+  fontSize: "14px",
+  fontWeight: "600",
+  transition: "color 0.3s ease-in-out, transform 0.2s ease-in-out",
+});
 
     // hover effect
-    btn.addEventListener("mouseenter", () => {
-      btn.style.background = "#2563eb";
-      btn.style.color = "#fff";
-      btn.style.borderColor = "#2563eb";
-      btn.style.boxShadow = "0 4px 12px rgba(37,99,235,0.2)";
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.background = "transparent";
-      btn.style.color = "#374151";
-      btn.style.borderColor = "#d1d5db";
-      btn.style.boxShadow = "none";
-    });
+btn.onmouseenter = () => {
+  btn.style.color = "#fff";
+  btn.style.transform = "translateY(-2px)";
+  btn.animate(
+    [
+      { boxShadow: "0 0 0 rgba(37,99,235,0)" },
+      { boxShadow: "0 8px 20px rgba(37,99,235,0.25)" }
+    ],
+    { duration: 300, fill: "forwards" }
+  );
+};
 
-    wrapper.appendChild(btn);
-    header.appendChild(wrapper);
+btn.onmouseleave = () => {
+  btn.style.color = "#2563eb";
+  btn.style.transform = "translateY(0)";
+  btn.animate(
+    [
+      { boxShadow: "0 8px 20px rgba(37,99,235,0.25)" },
+      { boxShadow: "0 0 0 rgba(37,99,235,0)" }
+    ],
+    { duration: 300, fill: "forwards" }
+  );
+};
+
 
     // keep it always at the far right
     header.style.display = "flex";
