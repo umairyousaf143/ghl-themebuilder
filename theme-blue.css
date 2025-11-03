@@ -565,3 +565,47 @@ button[class*="view"] {
   color: var(--ghl-text-light) !important;
   border-color: var(--ghl-primary) !important;
 }
+
+/* ================= CLICK HERE TO SWITCH - Special Styling ================= */
+/* Target the "Click here to switch" button/text */
+.account-switcher,
+.location-switcher,
+[class*="switcher"],
+aside > div:first-of-type,
+.sidebar-header,
+button[class*="switch"],
+div[class*="switch"],
+[aria-label*="switch"],
+[aria-label*="Switch"] {
+  color: var(--ghl-text-light) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Icon/gear next to "Click here to switch" */
+.account-switcher svg:first-child,
+.location-switcher svg:first-child,
+button[class*="switch"] svg {
+  fill: var(--ghl-accent) !important;
+  color: var(--ghl-accent) !important;
+  filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.6)) !important;
+  animation: rotate-pulse 3s ease-in-out infinite !important;
+}
+
+@keyframes rotate-pulse {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+}
+
+/* Text styling specifically */
+.account-switcher span:first-of-type,
+.location-switcher span:first-of-type {
+  background: linear-gradient(90deg, #ffffff, var(--ghl-accent)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 800 !important;
+}
