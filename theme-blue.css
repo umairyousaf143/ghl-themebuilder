@@ -259,8 +259,8 @@ kbd {
 .hl_menu_item, 
 .nav-link {
   color: rgba(255, 255, 255, 0.85) !important;
-  font-weight: 600 !important;
-  font-size: 15px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
   border-radius: 12px !important;
   margin: 4px 12px !important;
   padding: 14px 16px !important;
@@ -270,7 +270,7 @@ kbd {
   display: flex !important;
   align-items: center !important;
   gap: 14px !important;
-  letter-spacing: 0.3px !important;
+  letter-spacing: 0.4px !important;
   overflow: hidden !important;
 }
 
@@ -309,7 +309,7 @@ kbd {
 .menu-item:hover {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.12)) !important;
   color: var(--ghl-text-light) !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   transform: translateX(6px) !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
   border-left: 3px solid var(--ghl-accent) !important;
@@ -330,7 +330,7 @@ kbd {
 .nav-link.active {
   background: linear-gradient(90deg, rgba(56, 189, 248, 0.25), rgba(37, 99, 235, 0.2)) !important;
   color: var(--ghl-text-light) !important;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3) !important;
   border-left: 4px solid var(--ghl-accent) !important;
   padding-left: 12px !important;
@@ -348,9 +348,10 @@ kbd {
 /* Menu item text */
 .hl_nav_item span,
 .menu-item span {
-  font-size: 15px !important;
-  letter-spacing: 0.4px !important;
+  font-size: 16px !important;
+  letter-spacing: 0.5px !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  font-weight: 700 !important;
 }
 
 /* Menu section headings */
