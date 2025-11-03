@@ -1,55 +1,174 @@
-/* ============= GHL Theme - Blue ============= */
+/* ================================
+   GHL Full Blue Theme - Umair Style
+   ================================ */
 
-/* Sidebar Background */
-aside, .left-panel, .hl_sidebar, .hl_navbar, .hl_leftbar, .hl_nav {
-  background-color: #2563eb !important;
+/* ---------- GLOBAL COLORS ---------- */
+:root {
+  --ghl-primary: #2563eb;      /* Main Blue */
+  --ghl-dark-blue: #1e3a8a;    /* Darker Blue */
+  --ghl-light-blue: #3b82f6;   /* Accent Blue */
+  --ghl-bg-light: #f8fafc;     /* Dashboard background */
+  --ghl-text-dark: #0f172a;    /* Main text color */
+  --ghl-text-light: #ffffff;   /* White text */
+  --ghl-border: #dbeafe;       /* Light border color */
 }
 
-/* Top Header / Navigation Bar */
-header, .topbar, .hl_topbar, .hl_nav_header {
-  background-color: #1e3a8a !important;
+/* ---------- BODY / GENERAL ---------- */
+body, .hl_wrapper, .hl_dashboard_container, .hl_main {
+  background-color: var(--ghl-bg-light) !important;
+  color: var(--ghl-text-dark) !important;
+  font-family: 'Inter', 'Roboto', sans-serif !important;
 }
 
-/* Sidebar Menu Text */
-.hl_nav_text, .menu-item, .hl_nav_menu_item, .hl_menu_label, .hl_nav_item_label, .hl_nav_title {
-  color: #ffffff !important;
+/* ---------- HEADER / TOP NAV ---------- */
+header, .hl_header, .topbar, .hl_nav_header {
+  background-color: var(--ghl-dark-blue) !important;
+  color: var(--ghl-text-light) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
 }
 
-/* Sidebar Icons */
-.hl_nav_icon, .hl_icon, .menu-icon, svg {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+header a, .hl_header a {
+  color: var(--ghl-text-light) !important;
 }
 
-/* Hover and Active State */
-.hl_nav_item:hover, .hl_nav_item.active, .menu-item:hover, .menu-item.active {
-  background-color: #1d4ed8 !important;
+header a:hover {
+  color: var(--ghl-light-blue) !important;
+}
+
+/* ---------- SIDEBAR / LEFT NAV ---------- */
+aside, .hl_sidebar, .hl_navbar, .hl_leftbar, .hl_nav {
+  background-color: var(--ghl-primary) !important;
+  color: var(--ghl-text-light) !important;
+  border-right: 1px solid var(--ghl-border) !important;
+}
+
+.hl_nav_item, .menu-item {
+  color: var(--ghl-text-light) !important;
+  transition: all 0.2s ease-in-out !important;
+  font-weight: 500 !important;
+}
+
+.hl_nav_item:hover, .menu-item:hover {
+  background-color: var(--ghl-light-blue) !important;
   color: #fff !important;
+  border-radius: 6px !important;
 }
 
-/* Buttons and Primary Actions */
+.hl_nav_item.active, .menu-item.active {
+  background-color: var(--ghl-dark-blue) !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- ICONS ---------- */
+.hl_nav_icon, .hl_icon, .menu-icon, svg {
+  color: var(--ghl-text-light) !important;
+  fill: var(--ghl-text-light) !important;
+}
+
+.hl_nav_item:hover svg, .menu-item:hover svg {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+/* ---------- BUTTONS ---------- */
 button, .hl_button, .hl-btn, .hl_primary, .hl_submit {
-  background-color: #2563eb !important;
-  color: #ffffff !important;
+  background-color: var(--ghl-primary) !important;
+  color: #fff !important;
   border: none !important;
-}
-
-/* Input focus borders and highlights */
-input:focus, textarea:focus, select:focus {
-  border-color: #2563eb !important;
-  box-shadow: 0 0 0 1px #2563eb !important;
-}
-
-/* Dashboard cards and inner backgrounds (lightened for contrast) */
-.card, .hl_card, .hl_dashboard_card, .hl_widget_card {
-  background-color: #f9fafb !important;
   border-radius: 8px !important;
+  transition: 0.2s ease-in-out !important;
 }
 
-/* Scrollbar color (for sidebar) */
-::-webkit-scrollbar-thumb {
-  background: #1e3a8a !important;
+button:hover, .hl_button:hover, .hl-btn:hover {
+  background-color: var(--ghl-dark-blue) !important;
+  transform: translateY(-1px);
 }
+
+button:disabled {
+  background-color: #94a3b8 !important;
+  opacity: 0.7;
+}
+
+/* ---------- INPUTS / FORMS ---------- */
+input, textarea, select {
+  background-color: #fff !important;
+  color: var(--ghl-text-dark) !important;
+  border: 1px solid var(--ghl-border) !important;
+  border-radius: 6px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ghl-primary) !important;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.25) !important;
+  outline: none !important;
+}
+
+/* ---------- CARDS / WIDGETS ---------- */
+.card, .hl_card, .hl_dashboard_card, .hl_widget_card {
+  background-color: #fff !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--ghl-border) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+
+/* ---------- TABLES ---------- */
+table, .hl_table {
+  background-color: #fff !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--ghl-border) !important;
+}
+
+th {
+  background-color: var(--ghl-light-blue) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+td {
+  color: var(--ghl-text-dark) !important;
+}
+
+/* ---------- MODALS / POPUPS ---------- */
+.modal, .hl_modal {
+  background-color: rgba(0,0,0,0.4) !important;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content, .hl_modal_content {
+  background-color: #fff !important;
+  border-radius: 10px !important;
+  color: var(--ghl-text-dark) !important;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ghl-dark-blue) !important;
+  border-radius: 6px;
+}
+
 ::-webkit-scrollbar-track {
-  background: #2563eb !important;
+  background: var(--ghl-primary) !important;
+}
+
+/* ---------- LINKS ---------- */
+a {
+  color: var(--ghl-primary) !important;
+}
+
+a:hover {
+  color: var(--ghl-dark-blue) !important;
+  text-decoration: underline;
+}
+
+/* ---------- FOOTER / NOTES ---------- */
+footer, .hl_footer {
+  background-color: var(--ghl-dark-blue) !important;
+  color: var(--ghl-text-light) !important;
+  text-align: center !important;
+  padding: 10px 0 !important;
+  font-size: 13px !important;
 }
