@@ -1,35 +1,4 @@
-/* ==========================================================
-   GHL Enhanced Blue Theme (v5) — Color & Visibility Fixed
-   ========================================================== */
-
-/* ---------- BASE COLORS (Improved Contrast & Harmony) ---------- */
-:root {
-  --ghl-primary: #2563eb;         /* Vibrant blue (better contrast) */
-  --ghl-primary-light: #60a5fa;   /* Lighter accent */
-  --ghl-primary-dark: #1e40af;    /* Deep navy */
-  --ghl-accent: #38bdf8;          /* Sky blue accent */
-  --ghl-bg-main: #f8fafc;         /* Softer background */
-  --ghl-bg-card: #ffffff;         /* Card backgrounds */
-  --ghl-text-main: #0f172a;       /* Deep slate text */
-  --ghl-text-light: #ffffff;      /* White text */
-  --ghl-text-muted: #64748b;      /* Muted text */
-  --ghl-border: #e2e8f0;          /* Soft border */
-  --ghl-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
-  --ghl-shadow-md: 0 4px 16px rgba(15, 23, 42, 0.12);
-  --ghl-shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.16);
-  --ghl-shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.20);
-}
-
-/* ---------- BASE LAYOUT ---------- */
-body, .hl_wrapper, .hl_main {
-  background: var(--ghl-bg-main) !important;
-  color: var(--ghl-text-main) !important;
-  font-family: 'Inter', 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* ================= HEADER ================= */
+/* ================= HEADER - FIXED VERSION ================= */
 header, .hl_header, .topbar, .hl_nav_header {
   background: linear-gradient(135deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
   color: var(--ghl-text-light) !important;
@@ -37,7 +6,7 @@ header, .hl_header, .topbar, .hl_nav_header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* CRITICAL: Header Navigation Links - Make ALL text visible */
+/* CRITICAL: Header Navigation Links - Make text visible WITHOUT changing layout */
 header a,
 header nav a,
 header .nav-link,
@@ -46,7 +15,7 @@ header .hl_nav_link,
 .topbar nav a,
 .hl_header a,
 .hl_header nav a,
-header span,
+header span:not(.badge),
 header .text,
 header .menu-item,
 header .nav-item {
@@ -54,20 +23,20 @@ header .nav-item {
   opacity: 0.95 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
+  /* DO NOT add padding, margin, or display changes */
 }
 
-/* Header links hover */
+/* Header links hover - NO layout changes */
 header a:hover,
 header nav a:hover,
 header .nav-link:hover,
 .topbar a:hover {
   color: var(--ghl-text-light) !important;
   opacity: 1 !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-radius: 6px !important;
+  /* Remove background that might affect layout */
 }
 
-/* Header buttons - improved visibility */
+/* Header buttons - NO size changes */
 header button, 
 header .btn, 
 .hl_header .icon-button, 
@@ -78,9 +47,10 @@ header .btn,
   color: var(--ghl-text-light) !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
+  /* Keep original padding and margins - don't override */
 }
 
-/* Header icons - force visibility */
+/* Header icons - force visibility WITHOUT size changes */
 header button svg, 
 header .icon-button svg, 
 .topbar svg, 
@@ -90,18 +60,19 @@ header button i,
   fill: var(--ghl-text-light) !important;
   color: var(--ghl-text-light) !important;
   opacity: 1 !important;
+  /* Remove any width/height overrides */
 }
 
-/* Header button hover */
+/* Header button hover - minimal changes */
 header button:hover, 
 .topbar button:hover, 
 .icon-button:hover {
   background: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  /* Remove transform that shifts position */
 }
 
-/* Notification badges */
+/* Notification badges - keep original positioning */
 .header .badge, 
 .topbar .badge, 
 .hl-notification-badge {
@@ -111,6 +82,7 @@ header button:hover,
   border-radius: 12px !important;
   font-size: 11px !important;
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4) !important;
+  /* Keep default positioning */
 }
 
 /* Tooltips */
@@ -122,448 +94,3 @@ header button:hover,
   border-radius: 6px !important;
   font-size: 13px !important;
 }
-
-/* ================= SIDEBAR ================= */
-aside, 
-.hl_sidebar, 
-.hl_navbar, 
-.hl_leftbar, 
-.menu-sidebar {
-  background: linear-gradient(180deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
-  color: var(--ghl-text-light) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.12) !important;
-}
-
-/* Logo styling */
-aside .hl_nav_logo img, 
-.hl_leftbar img, 
-.menu-sidebar img {
-  filter: brightness(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) !important;
-  transition: transform 0.3s ease, filter 0.3s ease !important;
-}
-
-aside .hl_nav_logo img:hover {
-  transform: scale(1.05) !important;
-  filter: brightness(1.2) drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4)) !important;
-}
-
-/* Menu items */
-.hl_nav_item, 
-.menu-item, 
-.hl_menu_item, 
-.nav-link {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 600 !important;
-  border-radius: 10px !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-}
-
-/* Menu icons */
-.hl_nav_item svg, 
-.menu-item svg, 
-.hl_menu_item svg {
-  fill: rgba(255, 255, 255, 0.9) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  opacity: 0.9 !important;
-  transition: all 0.2s ease !important;
-}
-
-/* Menu hover state */
-.hl_nav_item:hover, 
-.menu-item:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: var(--ghl-text-light) !important;
-  transform: translateX(4px) !important;
-}
-
-.hl_nav_item:hover svg, 
-.menu-item:hover svg {
-  transform: scale(1.1) !important;
-  opacity: 1 !important;
-  fill: var(--ghl-accent) !important;
-}
-
-/* Active menu item */
-.hl_nav_item.active, 
-.menu-item.active, 
-.nav-link.active {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: var(--ghl-text-light) !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Menu section headings */
-.hl_nav_group_title, 
-.menu-heading {
-  color: rgba(255, 255, 255, 0.6) !important;
-  text-transform: uppercase !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  letter-spacing: 1px !important;
-}
-
-/* ================= CONTENT & CARDS ================= */
-.card, 
-.hl_card, 
-.hl_dashboard_card, 
-.hl_widget_card {
-  background: var(--ghl-bg-card) !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08) !important;
-  transition: all 0.25s ease !important;
-}
-
-.card:hover, 
-.hl_card:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12) !important;
-  border-color: var(--ghl-primary-light) !important;
-}
-
-/* Card headers */
-.card-header,
-.hl_card_header {
-  border-bottom: 1px solid var(--ghl-border) !important;
-  font-weight: 700 !important;
-  color: var(--ghl-text-main) !important;
-}
-
-/* Card text - ensure visibility */
-.card p,
-.card span,
-.card div,
-.hl_card p,
-.hl_card span,
-.hl_card div {
-  color: var(--ghl-text-main) !important;
-}
-
-/* ================= BUTTONS ================= */
-button, 
-.hl-btn, 
-.hl_button, 
-.hl_primary, 
-.hl_submit,
-.btn-primary {
-  background: linear-gradient(135deg, var(--ghl-primary) 0%, var(--ghl-primary-light) 100%) !important;
-  color: var(--ghl-text-light) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
-  transition: all 0.2s ease !important;
-}
-
-button:hover, 
-.hl-btn:hover, 
-.hl_submit:hover,
-.btn-primary:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35) !important;
-  filter: brightness(1.05) !important;
-}
-
-button:active,
-.hl-btn:active {
-  transform: translateY(0) !important;
-}
-
-/* Secondary buttons */
-button.secondary,
-.btn-secondary {
-  background: var(--ghl-bg-card) !important;
-  color: var(--ghl-text-main) !important;
-  border: 1px solid var(--ghl-border) !important;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06) !important;
-}
-
-button.secondary:hover,
-.btn-secondary:hover {
-  background: var(--ghl-bg-main) !important;
-  border-color: var(--ghl-primary) !important;
-}
-
-/* Outline buttons */
-button.ghost, 
-.btn-outline {
-  background: transparent !important;
-  border: 2px solid var(--ghl-primary) !important;
-  color: var(--ghl-primary) !important;
-  box-shadow: none !important;
-}
-
-button.ghost:hover,
-.btn-outline:hover {
-  background: var(--ghl-primary) !important;
-  color: var(--ghl-text-light) !important;
-}
-
-/* Button text visibility */
-button span,
-button div,
-.btn span,
-.btn div {
-  color: inherit !important;
-}
-
-/* ================= FORMS & INPUTS ================= */
-input, 
-textarea, 
-select {
-  background: var(--ghl-bg-card) !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 8px !important;
-  color: var(--ghl-text-main) !important;
-  transition: all 0.2s ease !important;
-}
-
-input:focus, 
-textarea:focus, 
-select:focus {
-  border-color: var(--ghl-primary) !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
-  outline: none !important;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--ghl-text-muted) !important;
-}
-
-/* Input labels */
-label {
-  color: var(--ghl-text-main) !important;
-  font-weight: 600 !important;
-}
-
-/* ================= TABLES ================= */
-table, 
-.hl_table {
-  width: 100% !important;
-  background: var(--ghl-bg-card) !important;
-  border-radius: 10px !important;
-  overflow: hidden !important;
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08) !important;
-}
-
-thead {
-  background: linear-gradient(135deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
-}
-
-th {
-  color: var(--ghl-text-light) !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  text-align: left !important;
-}
-
-td {
-  color: var(--ghl-text-main) !important;
-  border-bottom: 1px solid var(--ghl-border) !important;
-}
-
-tr:hover {
-  background: rgba(37, 99, 235, 0.04) !important;
-}
-
-tr:last-child td {
-  border-bottom: none !important;
-}
-
-/* ================= LIST ITEMS (Funnel List) ================= */
-/* Folder/funnel list items */
-.list-item,
-.folder-item,
-.funnel-item,
-[class*="folder"],
-[class*="funnel"] {
-  background: var(--ghl-bg-card) !important;
-  border: 1px solid var(--ghl-border) !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-}
-
-.list-item:hover,
-.folder-item:hover,
-.funnel-item:hover {
-  background: rgba(37, 99, 235, 0.04) !important;
-  border-color: var(--ghl-primary-light) !important;
-  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08) !important;
-}
-
-/* Text in lists */
-.list-item span,
-.list-item div,
-.list-item p,
-.folder-item span,
-.funnel-item span {
-  color: var(--ghl-text-main) !important;
-}
-
-/* Funnel count badges */
-.funnel-count,
-.badge-count,
-[class*="count"] {
-  color: var(--ghl-primary) !important;
-  font-weight: 600 !important;
-}
-
-/* ================= MODALS & POPUPS ================= */
-.modal-content, 
-.hl_modal_content {
-  background: var(--ghl-bg-card) !important;
-  border-radius: 16px !important;
-  border: 1px solid var(--ghl-border) !important;
-  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.2) !important;
-}
-
-.modal-header {
-  border-bottom: 1px solid var(--ghl-border) !important;
-}
-
-.modal-footer {
-  border-top: 1px solid var(--ghl-border) !important;
-}
-
-/* Help modals */
-.help-modal, 
-.hl-help-modal, 
-.help-dropdown {
-  background: var(--ghl-bg-card) !important;
-  border-radius: 12px !important;
-  color: var(--ghl-text-main) !important;
-  box-shadow: 0 12px 48px rgba(15, 23, 42, 0.15) !important;
-}
-
-/* ================= BADGES & TAGS ================= */
-.badge,
-.tag {
-  display: inline-flex !important;
-  align-items: center !important;
-  border-radius: 16px !important;
-  font-weight: 600 !important;
-  background: var(--ghl-primary-light) !important;
-  color: var(--ghl-text-light) !important;
-}
-
-.badge.success {
-  background: #10b981 !important;
-}
-
-.badge.warning {
-  background: #f59e0b !important;
-}
-
-.badge.danger {
-  background: #ef4444 !important;
-}
-
-/* ================= ACTION BUTTONS (3-dot menu) ================= */
-.action-button,
-.more-button,
-.menu-button,
-[aria-label*="more"],
-[aria-label*="actions"],
-button[class*="more"],
-button[class*="action"] {
-  background: var(--ghl-primary) !important;
-  color: var(--ghl-text-light) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-}
-
-.action-button:hover,
-.more-button:hover,
-.menu-button:hover {
-  background: var(--ghl-primary-dark) !important;
-  transform: scale(1.05) !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
-}
-
-/* ================= SCROLLBAR ================= */
-::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--ghl-primary-dark), var(--ghl-primary)) !important;
-  border-radius: 6px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ghl-primary) !important;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.05) !important;
-}
-
-/* ================= FOOTER ================= */
-footer, 
-.hl_footer {
-  background: linear-gradient(135deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
-  color: var(--ghl-text-light) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* ================= UTILITY CLASSES ================= */
-.text-primary {
-  color: var(--ghl-primary) !important;
-}
-
-.text-muted {
-  color: var(--ghl-text-muted) !important;
-}
-
-.bg-primary {
-  background: var(--ghl-primary) !important;
-}
-
-/* ================= SEARCH & FILTER BARS ================= */
-input[type="search"],
-.search-input,
-.filter-input {
-  background: var(--ghl-bg-card) !important;
-  border: 1px solid var(--ghl-border) !important;
-  color: var(--ghl-text-main) !important;
-}
-
-/* ================= TOGGLE BUTTONS ================= */
-.toggle-view,
-.view-toggle,
-button[class*="toggle"],
-button[class*="view"] {
-  background: rgba(37, 99, 235, 0.1) !important;
-  color: var(--ghl-primary) !important;
-  border: 1px solid var(--ghl-primary-light) !important;
-}
-
-.toggle-view.active,
-.view-toggle.active {
-  background: var(--ghl-primary) !important;
-  color: var(--ghl-text-light) !important;
-}
-
-/* ================= PAGINATION ================= */
-.pagination button,
-.pagination a {
-  color: var(--ghl-text-main) !important;
-  border: 1px solid var(--ghl-border) !important;
-}
-
-.pagination button:hover,
-.pagination a:hover {
-  background: var(--ghl-primary) !important;
-  color: var(--ghl-text-light) !important;
-  border-color: var(--ghl-primary) !important;
-}
-
-
