@@ -133,7 +133,6 @@ aside,
   color: var(--ghl-text-light) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 4px 0 24px rgba(15, 23, 42, 0.12) !important;
-  padding: 0 !important;
 }
 
 /* Logo styling */
@@ -142,9 +141,6 @@ aside .hl_nav_logo img,
 .menu-sidebar img {
   filter: brightness(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) !important;
   transition: transform 0.3s ease, filter 0.3s ease !important;
-  margin: 16px auto 12px auto !important;
-  display: block !important;
-  max-width: 140px !important;
 }
 
 aside .hl_nav_logo img:hover {
@@ -152,206 +148,51 @@ aside .hl_nav_logo img:hover {
   filter: brightness(1.2) drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4)) !important;
 }
 
-/* ================= ACCOUNT SWITCHER (Below Logo) ================= */
-.account-switcher,
-.location-switcher,
-[class*="switcher"],
-aside > div:first-of-type,
-.sidebar-header {
-  background: rgba(0, 0, 0, 0.15) !important;
-  border-radius: 12px !important;
-  margin: 8px 12px 16px 12px !important;
-  padding: 12px 14px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  transition: all 0.3s ease !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-.account-switcher:hover,
-.location-switcher:hover {
-  background: rgba(0, 0, 0, 0.25) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Account name text */
-.account-switcher span,
-.account-switcher div,
-.location-switcher span,
-.location-switcher div {
-  color: var(--ghl-text-light) !important;
-  font-weight: 700 !important;
-  font-size: 15px !important;
-  letter-spacing: 0.3px !important;
-}
-
-/* Account subtitle (e.g., "Florida") */
-.account-switcher small,
-.location-switcher small,
-[class*="subtitle"] {
-  color: rgba(255, 255, 255, 0.7) !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-}
-
-/* Dropdown arrow in account switcher */
-.account-switcher svg,
-.location-switcher svg {
-  fill: var(--ghl-text-light) !important;
-  color: var(--ghl-text-light) !important;
-  opacity: 0.8 !important;
-}
-
-/* ================= SEARCH BAR (In Sidebar) ================= */
-.sidebar-search,
-aside input[type="search"],
-aside .search-input,
-.hl_sidebar input[type="search"] {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 10px !important;
-  color: var(--ghl-text-light) !important;
-  padding: 10px 14px !important;
-  margin: 8px 12px 16px 12px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  transition: all 0.3s ease !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-.sidebar-search:focus,
-aside input[type="search"]:focus {
-  background: rgba(255, 255, 255, 0.18) !important;
-  border-color: var(--ghl-accent) !important;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
-  outline: none !important;
-}
-
-.sidebar-search::placeholder,
-aside input[type="search"]::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
-  font-weight: 500 !important;
-}
-
-/* Search icon */
-.sidebar-search-icon,
-aside .search-icon svg {
-  fill: rgba(255, 255, 255, 0.7) !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* Keyboard shortcut badge (K) */
-.search-shortcut,
-kbd {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: var(--ghl-text-light) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 6px !important;
-  padding: 4px 8px !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-}
-
 /* Menu items */
 .hl_nav_item, 
 .menu-item, 
 .hl_menu_item, 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85) !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  border-radius: 12px !important;
-  margin: 4px 12px !important;
-  padding: 14px 16px !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease !important;
   cursor: pointer !important;
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 14px !important;
-  letter-spacing: 0.4px !important;
-  overflow: hidden !important;
-}
-
-/* Shine effect on hover */
-.hl_nav_item::before,
-.menu-item::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: -100% !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
-  transition: left 0.5s ease !important;
-}
-
-.hl_nav_item:hover::before,
-.menu-item:hover::before {
-  left: 100% !important;
 }
 
 /* Menu icons */
 .hl_nav_item svg, 
 .menu-item svg, 
 .hl_menu_item svg {
-  width: 22px !important;
-  height: 22px !important;
-  fill: rgba(255, 255, 255, 0.85) !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  opacity: 0.9 !important;
+  transition: all 0.2s ease !important;
 }
 
 /* Menu hover state */
 .hl_nav_item:hover, 
 .menu-item:hover {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.12)) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
   color: var(--ghl-text-light) !important;
-  font-weight: 800 !important;
-  transform: translateX(6px) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
-  border-left: 3px solid var(--ghl-accent) !important;
-  padding-left: 13px !important;
+  transform: translateX(4px) !important;
 }
 
 .hl_nav_item:hover svg, 
 .menu-item:hover svg {
-  transform: scale(1.15) rotate(5deg) !important;
+  transform: scale(1.1) !important;
+  opacity: 1 !important;
   fill: var(--ghl-accent) !important;
-  color: var(--ghl-accent) !important;
-  filter: drop-shadow(0 4px 12px rgba(56, 189, 248, 0.5)) !important;
 }
 
 /* Active menu item */
 .hl_nav_item.active, 
 .menu-item.active, 
 .nav-link.active {
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0.25), rgba(37, 99, 235, 0.2)) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
   color: var(--ghl-text-light) !important;
-  font-weight: 900 !important;
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3) !important;
-  border-left: 4px solid var(--ghl-accent) !important;
-  padding-left: 12px !important;
-  transform: translateX(2px) !important;
-}
-
-.hl_nav_item.active svg,
-.menu-item.active svg {
-  fill: var(--ghl-accent) !important;
-  color: var(--ghl-accent) !important;
-  transform: scale(1.1) !important;
-  filter: drop-shadow(0 4px 16px rgba(56, 189, 248, 0.6)) !important;
-}
-
-/* Menu item text */
-.hl_nav_item span,
-.menu-item span {
-  font-size: 16px !important;
-  letter-spacing: 0.5px !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
   font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Menu section headings */
