@@ -566,47 +566,96 @@ button[class*="view"] {
   border-color: var(--ghl-primary) !important;
 }
 
-/* ================= CLICK HERE TO SWITCH - Special Styling ================= */
-/* Background and container styling */
+/* ================= CLICK HERE TO SWITCH - Beautiful Modern Style ================= */
+/* Container styling - Clean white background with shadow */
 .account-switcher,
 .location-switcher,
 [class*="switcher"],
 aside > div:first-of-type,
 .sidebar-header {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px) !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 14px 16px !important;
+  margin: 8px 12px 16px 12px !important;
+  border: 2px solid rgba(37, 99, 235, 0.15) !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
 }
 
-/* "Click here to switch" text - Bold Blue */
-.account-switcher span,
-.account-switcher div,
-.location-switcher span,
-.location-switcher div,
-button[class*="switch"] span {
-  color: var(--ghl-primary) !important;
-  font-weight: 800 !important;
-  text-shadow: none !important;
+/* Hover effect - Lift and glow */
+.account-switcher:hover,
+.location-switcher:hover {
+  border-color: var(--ghl-primary) !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2) !important;
+  transform: translateY(-2px) !important;
 }
 
-/* Icon/gear next to "Click here to switch" */
+/* Location/Settings icon - Blue circle background */
 .account-switcher svg:first-child,
 .location-switcher svg:first-child,
-button[class*="switch"] svg {
-  fill: var(--ghl-primary) !important;
+button[class*="switch"] svg:first-child {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 6px !important;
+  background: linear-gradient(135deg, var(--ghl-primary), var(--ghl-primary-light)) !important;
+  border-radius: 50% !important;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+  flex-shrink: 0 !important;
+}
+
+/* "Click here to switch" text - Bold Blue/Green gradient */
+.account-switcher span:first-of-type,
+.location-switcher span:first-of-type,
+.account-switcher div:first-of-type {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.3px !important;
+  flex: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Alternative: Blue text if you prefer matching theme */
+/* Uncomment below and comment above for blue text */
+/*
+.account-switcher span:first-of-type,
+.location-switcher span:first-of-type {
   color: var(--ghl-primary) !important;
-  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4)) !important;
-  animation: rotate-pulse 3s ease-in-out infinite !important;
 }
+*/
 
-@keyframes rotate-pulse {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.1); }
-}
-
-/* Dropdown arrow - Blue color */
+/* Dropdown arrows container - Right side */
 .account-switcher svg:last-child,
-.location-switcher svg:last-child {
+.location-switcher svg:last-child,
+[class*="chevron"],
+[class*="arrow"] {
   fill: var(--ghl-primary) !important;
   color: var(--ghl-primary) !important;
+  opacity: 0.7 !important;
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Arrow hover effect */
+.account-switcher:hover svg:last-child,
+.location-switcher:hover svg:last-child {
   opacity: 1 !important;
+  transform: translateY(2px) !important;
+}
+
+/* Account name/subtitle below (if exists) */
+.account-switcher small,
+.location-switcher small {
+  color: #64748b !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
 }
