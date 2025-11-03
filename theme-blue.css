@@ -1,5 +1,5 @@
 /* ==========================================================
-   GHL Enhanced Blue Theme (v5) — Refined & Fixed
+   GHL Enhanced Blue Theme (v5) — Color & Visibility Fixed
    ========================================================== */
 
 /* ---------- BASE COLORS (Improved Contrast & Harmony) ---------- */
@@ -33,9 +33,38 @@ body, .hl_wrapper, .hl_main {
 header, .hl_header, .topbar, .hl_nav_header {
   background: linear-gradient(135deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
   color: var(--ghl-text-light) !important;
-  box-shadow: var(--ghl-shadow-lg) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.15) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(10px) !important;
+}
+
+/* CRITICAL: Header Navigation Links - Make ALL text visible */
+header a,
+header nav a,
+header .nav-link,
+header .hl_nav_link,
+.topbar a,
+.topbar nav a,
+.hl_header a,
+.hl_header nav a,
+header span,
+header .text,
+header .menu-item,
+header .nav-item {
+  color: var(--ghl-text-light) !important;
+  opacity: 0.95 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+/* Header links hover */
+header a:hover,
+header nav a:hover,
+header .nav-link:hover,
+.topbar a:hover {
+  color: var(--ghl-text-light) !important;
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
 }
 
 /* Header buttons - improved visibility */
@@ -47,16 +76,8 @@ header .btn,
   background: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: var(--ghl-text-light) !important;
-  padding: 8px 12px !important;
-  margin: 0 6px !important;
-  border-radius: 8px !important;
-  min-width: 40px !important;
-  height: 40px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   cursor: pointer !important;
+  transition: all 0.2s ease !important;
 }
 
 /* Header icons - force visibility */
@@ -66,11 +87,9 @@ header .icon-button svg,
 .hl_header svg, 
 header button i, 
 .topbar i {
-  fill: currentColor !important;
+  fill: var(--ghl-text-light) !important;
   color: var(--ghl-text-light) !important;
   opacity: 1 !important;
-  width: 20px !important;
-  height: 20px !important;
 }
 
 /* Header button hover */
@@ -78,8 +97,8 @@ header button:hover,
 .topbar button:hover, 
 .icon-button:hover {
   background: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Notification badges */
@@ -90,7 +109,6 @@ header button:hover,
   color: var(--ghl-text-light) !important;
   font-weight: 700 !important;
   border-radius: 12px !important;
-  padding: 2px 8px !important;
   font-size: 11px !important;
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4) !important;
 }
@@ -102,7 +120,6 @@ header button:hover,
   background: rgba(15, 23, 42, 0.95) !important;
   color: var(--ghl-text-light) !important;
   border-radius: 6px !important;
-  padding: 6px 12px !important;
   font-size: 13px !important;
 }
 
@@ -115,18 +132,13 @@ aside,
   background: linear-gradient(180deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
   color: var(--ghl-text-light) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: var(--ghl-shadow-xl) !important;
-  padding-top: 16px !important;
-  min-width: 260px !important;
+  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.12) !important;
 }
 
 /* Logo styling */
 aside .hl_nav_logo img, 
 .hl_leftbar img, 
 .menu-sidebar img {
-  max-width: 160px !important;
-  margin: 12px auto 24px auto !important;
-  display: block !important;
   filter: brightness(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) !important;
   transition: transform 0.3s ease, filter 0.3s ease !important;
 }
@@ -143,25 +155,17 @@ aside .hl_nav_logo img:hover {
 .nav-link {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
   border-radius: 10px !important;
-  margin: 4px 12px !important;
-  padding: 12px 16px !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
+  transition: all 0.2s ease !important;
   cursor: pointer !important;
-  position: relative !important;
 }
 
 /* Menu icons */
 .hl_nav_item svg, 
 .menu-item svg, 
 .hl_menu_item svg {
-  width: 20px !important;
-  height: 20px !important;
-  fill: currentColor !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   opacity: 0.9 !important;
   transition: all 0.2s ease !important;
 }
@@ -178,6 +182,7 @@ aside .hl_nav_logo img:hover {
 .menu-item:hover svg {
   transform: scale(1.1) !important;
   opacity: 1 !important;
+  fill: var(--ghl-accent) !important;
 }
 
 /* Active menu item */
@@ -190,19 +195,6 @@ aside .hl_nav_logo img:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
-.hl_nav_item.active::before,
-.menu-item.active::before {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 4px !important;
-  height: 70% !important;
-  background: var(--ghl-accent) !important;
-  border-radius: 0 4px 4px 0 !important;
-}
-
 /* Menu section headings */
 .hl_nav_group_title, 
 .menu-heading {
@@ -211,7 +203,6 @@ aside .hl_nav_logo img:hover {
   font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
-  margin: 20px 16px 8px 16px !important;
 }
 
 /* ================= CONTENT & CARDS ================= */
@@ -222,15 +213,14 @@ aside .hl_nav_logo img:hover {
   background: var(--ghl-bg-card) !important;
   border: 1px solid var(--ghl-border) !important;
   border-radius: 12px !important;
-  box-shadow: var(--ghl-shadow-md) !important;
-  padding: 20px !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08) !important;
+  transition: all 0.25s ease !important;
 }
 
 .card:hover, 
 .hl_card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: var(--ghl-shadow-xl) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12) !important;
   border-color: var(--ghl-primary-light) !important;
 }
 
@@ -238,9 +228,17 @@ aside .hl_nav_logo img:hover {
 .card-header,
 .hl_card_header {
   border-bottom: 1px solid var(--ghl-border) !important;
-  padding-bottom: 12px !important;
-  margin-bottom: 16px !important;
   font-weight: 700 !important;
+  color: var(--ghl-text-main) !important;
+}
+
+/* Card text - ensure visibility */
+.card p,
+.card span,
+.card div,
+.hl_card p,
+.hl_card span,
+.hl_card div {
   color: var(--ghl-text-main) !important;
 }
 
@@ -256,18 +254,18 @@ button,
   border: none !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
-  padding: 10px 20px !important;
   cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+  transition: all 0.2s ease !important;
 }
 
 button:hover, 
 .hl-btn:hover, 
-.hl_submit:hover {
+.hl_submit:hover,
+.btn-primary:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35) !important;
+  filter: brightness(1.05) !important;
 }
 
 button:active,
@@ -281,7 +279,13 @@ button.secondary,
   background: var(--ghl-bg-card) !important;
   color: var(--ghl-text-main) !important;
   border: 1px solid var(--ghl-border) !important;
-  box-shadow: var(--ghl-shadow-sm) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06) !important;
+}
+
+button.secondary:hover,
+.btn-secondary:hover {
+  background: var(--ghl-bg-main) !important;
+  border-color: var(--ghl-primary) !important;
 }
 
 /* Outline buttons */
@@ -299,6 +303,14 @@ button.ghost:hover,
   color: var(--ghl-text-light) !important;
 }
 
+/* Button text visibility */
+button span,
+button div,
+.btn span,
+.btn div {
+  color: inherit !important;
+}
+
 /* ================= FORMS & INPUTS ================= */
 input, 
 textarea, 
@@ -307,8 +319,6 @@ select {
   border: 1px solid var(--ghl-border) !important;
   border-radius: 8px !important;
   color: var(--ghl-text-main) !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
   transition: all 0.2s ease !important;
 }
 
@@ -329,9 +339,6 @@ textarea::placeholder {
 label {
   color: var(--ghl-text-main) !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
-  margin-bottom: 6px !important;
-  display: block !important;
 }
 
 /* ================= TABLES ================= */
@@ -341,7 +348,7 @@ table,
   background: var(--ghl-bg-card) !important;
   border-radius: 10px !important;
   overflow: hidden !important;
-  box-shadow: var(--ghl-shadow-md) !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08) !important;
 }
 
 thead {
@@ -351,25 +358,60 @@ thead {
 th {
   color: var(--ghl-text-light) !important;
   font-weight: 700 !important;
-  font-size: 13px !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  padding: 14px 16px !important;
   text-align: left !important;
 }
 
 td {
   color: var(--ghl-text-main) !important;
-  padding: 12px 16px !important;
   border-bottom: 1px solid var(--ghl-border) !important;
 }
 
 tr:hover {
-  background: rgba(37, 99, 235, 0.05) !important;
+  background: rgba(37, 99, 235, 0.04) !important;
 }
 
 tr:last-child td {
   border-bottom: none !important;
+}
+
+/* ================= LIST ITEMS (Funnel List) ================= */
+/* Folder/funnel list items */
+.list-item,
+.folder-item,
+.funnel-item,
+[class*="folder"],
+[class*="funnel"] {
+  background: var(--ghl-bg-card) !important;
+  border: 1px solid var(--ghl-border) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.list-item:hover,
+.folder-item:hover,
+.funnel-item:hover {
+  background: rgba(37, 99, 235, 0.04) !important;
+  border-color: var(--ghl-primary-light) !important;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08) !important;
+}
+
+/* Text in lists */
+.list-item span,
+.list-item div,
+.list-item p,
+.folder-item span,
+.funnel-item span {
+  color: var(--ghl-text-main) !important;
+}
+
+/* Funnel count badges */
+.funnel-count,
+.badge-count,
+[class*="count"] {
+  color: var(--ghl-primary) !important;
+  font-weight: 600 !important;
 }
 
 /* ================= MODALS & POPUPS ================= */
@@ -378,23 +420,15 @@ tr:last-child td {
   background: var(--ghl-bg-card) !important;
   border-radius: 16px !important;
   border: 1px solid var(--ghl-border) !important;
-  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.3) !important;
-  padding: 24px !important;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.2) !important;
 }
 
 .modal-header {
   border-bottom: 1px solid var(--ghl-border) !important;
-  padding-bottom: 16px !important;
-  margin-bottom: 20px !important;
 }
 
 .modal-footer {
   border-top: 1px solid var(--ghl-border) !important;
-  padding-top: 16px !important;
-  margin-top: 20px !important;
-  display: flex !important;
-  gap: 12px !important;
-  justify-content: flex-end !important;
 }
 
 /* Help modals */
@@ -404,8 +438,7 @@ tr:last-child td {
   background: var(--ghl-bg-card) !important;
   border-radius: 12px !important;
   color: var(--ghl-text-main) !important;
-  box-shadow: var(--ghl-shadow-xl) !important;
-  padding: 16px !important;
+  box-shadow: 0 12px 48px rgba(15, 23, 42, 0.15) !important;
 }
 
 /* ================= BADGES & TAGS ================= */
@@ -413,9 +446,7 @@ tr:last-child td {
 .tag {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 4px 12px !important;
   border-radius: 16px !important;
-  font-size: 12px !important;
   font-weight: 600 !important;
   background: var(--ghl-primary-light) !important;
   color: var(--ghl-text-light) !important;
@@ -431,6 +462,29 @@ tr:last-child td {
 
 .badge.danger {
   background: #ef4444 !important;
+}
+
+/* ================= ACTION BUTTONS (3-dot menu) ================= */
+.action-button,
+.more-button,
+.menu-button,
+[aria-label*="more"],
+[aria-label*="actions"],
+button[class*="more"],
+button[class*="action"] {
+  background: var(--ghl-primary) !important;
+  color: var(--ghl-text-light) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.action-button:hover,
+.more-button:hover,
+.menu-button:hover {
+  background: var(--ghl-primary-dark) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
 }
 
 /* ================= SCROLLBAR ================= */
@@ -457,9 +511,6 @@ footer,
 .hl_footer {
   background: linear-gradient(135deg, var(--ghl-primary-dark) 0%, var(--ghl-primary) 100%) !important;
   color: var(--ghl-text-light) !important;
-  padding: 16px 20px !important;
-  text-align: center !important;
-  font-size: 13px !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -476,30 +527,41 @@ footer,
   background: var(--ghl-primary) !important;
 }
 
-.shadow-sm {
-  box-shadow: var(--ghl-shadow-sm) !important;
+/* ================= SEARCH & FILTER BARS ================= */
+input[type="search"],
+.search-input,
+.filter-input {
+  background: var(--ghl-bg-card) !important;
+  border: 1px solid var(--ghl-border) !important;
+  color: var(--ghl-text-main) !important;
 }
 
-.shadow-md {
-  box-shadow: var(--ghl-shadow-md) !important;
+/* ================= TOGGLE BUTTONS ================= */
+.toggle-view,
+.view-toggle,
+button[class*="toggle"],
+button[class*="view"] {
+  background: rgba(37, 99, 235, 0.1) !important;
+  color: var(--ghl-primary) !important;
+  border: 1px solid var(--ghl-primary-light) !important;
 }
 
-.shadow-lg {
-  box-shadow: var(--ghl-shadow-lg) !important;
+.toggle-view.active,
+.view-toggle.active {
+  background: var(--ghl-primary) !important;
+  color: var(--ghl-text-light) !important;
 }
 
-/* ================= ANIMATIONS ================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ================= PAGINATION ================= */
+.pagination button,
+.pagination a {
+  color: var(--ghl-text-main) !important;
+  border: 1px solid var(--ghl-border) !important;
 }
 
-.fade-in {
-  animation: fadeIn 0.3s ease-out !important;
+.pagination button:hover,
+.pagination a:hover {
+  background: var(--ghl-primary) !important;
+  color: var(--ghl-text-light) !important;
+  border-color: var(--ghl-primary) !important;
 }
